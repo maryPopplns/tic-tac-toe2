@@ -1,0 +1,5 @@
+@media (min-height: 800px) and (min-width: 800px) {
+  body {
+    background-color: blueviolet;
+  }
+}
