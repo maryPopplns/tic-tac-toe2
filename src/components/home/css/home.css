@@ -1,3 +1,9 @@
+@import "tic.css";
+@import "tac.css";
+@import "toe.css";
+@import "players.css";
+@import "one_two.css";
+
 body {
   background: black;
 }
@@ -6,13 +12,18 @@ body {
   display: grid;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(30, 1fr);
-  gap: 0.125em;
+  gap: 0.06em;
   height: 40em;
   width: 40em;
   margin: 2em auto;
 }
 
 .home_page_tile {
-  border: 1px dotted white;
+  border: 1px solid white;
+  border-radius: 0.125em;
+}
+
+.colored_tile {
+  /* border-radius: 0.125em; */
   border-radius: 0.125em;
 }
