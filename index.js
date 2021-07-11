@@ -1,3 +1,3 @@
-import { home } from "./src/components/home/home.js";
+import { home_page } from "./src/components/home/home_page.js";
 
-home();
+home_page();
