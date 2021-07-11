@@ -1,3 +1,89 @@
+@keyframes toe {
+  0% {
+    background-color: red;
+  }
+
+  5% {
+    background-color: red;
+  }
+
+  10% {
+    background-color: red;
+  }
+
+  15% {
+    background-color: red;
+  }
+
+  20% {
+    background-color: red;
+  }
+
+  25% {
+    background-color: red;
+  }
+
+  30% {
+    background-color: red;
+  }
+
+  35% {
+    background-color: red;
+  }
+
+  40% {
+    background-color: red;
+  }
+
+  45% {
+    background-color: red;
+  }
+
+  50% {
+    background-color: red;
+  }
+
+  55% {
+    background-color: red;
+  }
+
+  60% {
+    background-color: red;
+  }
+
+  65% {
+    background-color: red;
+  }
+
+  70% {
+    background-color: red;
+  }
+
+  75% {
+    background-color: red;
+  }
+
+  80% {
+    background-color: red;
+  }
+
+  85% {
+    background-color: red;
+  }
+
+  90% {
+    background-color: red;
+  }
+
+  95% {
+    background-color: red;
+  }
+
+  100% {
+    background-color: red;
+  }
+}
+
 .toe {
   background: rgb(138, 43, 226);
 }

@@ -53,8 +53,8 @@ const PLAYERS = {
   s: [566, 567, 568, 596, 626, 627, 628, 658, 686, 687, 688],
 };
 
-const ONE_TWO = {
-  name: "one-two",
+const BUTTONS = {
+  name: "buttons",
   one: [755, 756, 757, 786, 787, 816, 817, 846, 847, 875, 876, 877, 878],
   one_background: [
     720, 721, 722, 723, 724, 725, 726, 727, 728, 729, 730, 731, 732, 733, 750,
@@ -73,4 +73,4 @@ const ONE_TWO = {
   ],
 };
 
-export { TIC, TAC, TOE, BORDERS, PLAYERS, ONE_TWO };
+export { TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS };

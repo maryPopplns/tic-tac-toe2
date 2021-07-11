@@ -4,6 +4,30 @@
 @import "players.css";
 @import "one_two.css";
 
+:root {
+  --opacity-00: 1;
+  --opacity-05: 0.98;
+  --opacity-10: 0.96;
+  --opacity-15: 0.94;
+  --opacity-20: 0.92;
+  --opacity-25: 0.9;
+  --opacity-30: 0.88;
+  --opacity-35: 0.86;
+  --opacity-40: 0.84;
+  --opacity-45: 0.82;
+  --opacity-50: 0.8;
+  --opacity-55: 0.82;
+  --opacity-60: 0.84;
+  --opacity-65: 0.86;
+  --opacity-70: 0.88;
+  --opacity-75: 0.9;
+  --opacity-80: 0.92;
+  --opacity-85: 0.94;
+  --opacity-90: 0.96;
+  --opacity-95: 0.98;
+  --opacity-100: 1;
+}
+
 body {
   background: black;
 }
@@ -18,12 +42,6 @@ body {
   margin: 2em auto;
 }
 
-.home_page_tile {
-  border: 1px solid white;
-  border-radius: 0.125em;
-}
-
-.colored_tile {
-  /* border-radius: 0.125em; */
-  border-radius: 0.125em;
+.tile {
+  border-radius: 0.2em;
 }

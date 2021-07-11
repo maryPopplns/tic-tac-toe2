@@ -4,7 +4,7 @@ import {
   TOE,
   BORDERS,
   PLAYERS,
-  ONE_TWO,
+  BUTTONS,
 } from "./helper/colored_tiles.js";
 
 function home_page() {
@@ -14,7 +14,7 @@ function home_page() {
   for (let i = 0; i < 900; i++) {
     const HOME_PAGE_TILE = document.createElement("div");
     HOME_PAGE_TILE.setAttribute("id", i);
-    HOME_PAGE_TILE.setAttribute("class", "home_page_tile");
+    HOME_PAGE_TILE.setAttribute("class", "tile black_tile");
     HOME_PAGE.append(HOME_PAGE_TILE);
   }
 
@@ -37,7 +37,7 @@ function home_page() {
         });
       }
     });
-  })([TIC, TAC, TOE, BORDERS, PLAYERS, ONE_TWO]);
+  })([TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS]);
 }
 
 export { home_page };
