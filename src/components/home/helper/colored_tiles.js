@@ -1,16 +1,19 @@
 const TIC = {
+  name: "tic",
   t: [3, 4, 5, 6, 34, 35, 64, 65, 94, 95, 124, 125],
   i: [8, 9, 10, 11, 39, 40, 69, 70, 99, 100, 128, 129, 130, 131],
   c: [13, 14, 15, 16, 43, 44, 73, 74, 103, 104, 133, 134, 135, 136],
 };
 
 const TAC = {
+  name: "tac",
   t: [188, 189, 190, 191, 219, 220, 249, 250, 279, 280, 309, 310],
   a: [193, 194, 195, 196, 223, 224, 225, 226, 253, 256, 283, 286, 313, 316],
   c: [198, 199, 200, 201, 228, 229, 258, 259, 288, 289, 318, 319, 320, 321],
 };
 
 const TOE = {
+  name: "toe",
   t: [373, 374, 375, 376, 404, 405, 434, 435, 464, 465, 494, 495],
   o: [
     378, 379, 380, 381, 408, 409, 410, 411, 438, 441, 468, 471, 498, 499, 500,
@@ -21,22 +24,24 @@ const TOE = {
   ],
 };
 
-const HORIZONTAL_RULES = {
+const BORDERS = {
+  name: "border",
   top: [],
   one: [734, 764, 794, 824, 854, 884],
   two: [735, 765, 795, 825, 855, 885],
 };
 for (let i = 510; i < 540; i++) {
-  HORIZONTAL_RULES.top.push(i);
+  BORDERS.top.push(i);
 }
 for (let i = 690; i < 705; i++) {
-  HORIZONTAL_RULES.one.push(i);
+  BORDERS.one.push(i);
 }
-for (let i = 705; i < 719; i++) {
-  HORIZONTAL_RULES.two.push(i);
+for (let i = 705; i < 720; i++) {
+  BORDERS.two.push(i);
 }
 
 const PLAYERS = {
+  name: "players",
   p: [
     541, 542, 543, 544, 571, 572, 574, 601, 602, 603, 604, 631, 632, 661, 662,
   ],
@@ -49,10 +54,9 @@ const PLAYERS = {
 };
 
 const ONE_TWO = {
+  name: "one-two",
   one: [755, 756, 757, 786, 787, 816, 817, 846, 847, 875, 876, 877, 878],
   two: [771, 772, 773, 774, 804, 831, 832, 833, 834, 861, 891, 892, 893, 894],
 };
 
-const BACKGROUND = function () {};
-
-export { TIC, TAC, TOE, HORIZONTAL_RULES, PLAYERS, ONE_TWO };
+export { TIC, TAC, TOE, BORDERS, PLAYERS, ONE_TWO };
