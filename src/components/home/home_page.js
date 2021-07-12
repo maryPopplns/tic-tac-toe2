@@ -13,7 +13,7 @@ function home_page() {
     const HOME_PAGE_TILE = document.createElement("div");
     HOME_PAGE_TILE.setAttribute("id", i);
     HOME_PAGE_TILE.setAttribute("class", "tile black_tile");
-    HOME_PAGE.append(HOME_PAGE_TILE);
+    GRID.append(HOME_PAGE_TILE);
   }
 
   // <-adds ids and classes to colored tiles->
@@ -45,6 +45,7 @@ function home_page() {
 
   BUTTON_1_WRAPPER.setAttribute("id", "button_1_wrapper");
   BUTTON_2_WRAPPER.setAttribute("id", "button_2_wrapper");
+
   //
   // HOME_PAGE.prepend([BUTTON_1_WRAPPER, BUTTON_2_WRAPPER]);
   // HOME_PAGE.prepend();
