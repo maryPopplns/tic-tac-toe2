@@ -4,8 +4,11 @@ function home_page() {
   // <-generates grid->
 
   const HOME_PAGE = document.createElement("main");
+  const GRID = document.createElement("div");
   HOME_PAGE.setAttribute("id", "home");
+  GRID.setAttribute("id", "grid");
   document.body.prepend(HOME_PAGE);
+  HOME_PAGE.append(GRID);
   for (let i = 0; i < 900; i++) {
     const HOME_PAGE_TILE = document.createElement("div");
     HOME_PAGE_TILE.setAttribute("id", i);
@@ -37,19 +40,28 @@ function home_page() {
 
   // <-adding event listeners->
 
-  const REMOVE_HOME = () => document.getElementById("home").remove();
+  const BUTTON_1_WRAPPER = document.createElement("div");
+  const BUTTON_2_WRAPPER = document.createElement("div");
 
-  Array.from(document.getElementsByClassName("button1")).map((tile) =>
-    tile.addEventListener("click", () => {
-      REMOVE_HOME();
-    })
-  );
+  BUTTON_1_WRAPPER.setAttribute("id", "button_1_wrapper");
+  BUTTON_2_WRAPPER.setAttribute("id", "button_2_wrapper");
+  //
+  // HOME_PAGE.prepend([BUTTON_1_WRAPPER, BUTTON_2_WRAPPER]);
+  // HOME_PAGE.prepend();
 
-  Array.from(document.getElementsByClassName("button2")).map((tile) =>
-    tile.addEventListener("click", () => {
-      REMOVE_HOME();
-    })
-  );
+  // const REMOVE_HOME = () => document.getElementById("home").remove();
+
+  // Array.from(document.getElementsByClassName("button1")).map((tile) =>
+  //   tile.addEventListener("click", () => {
+  //     REMOVE_HOME();
+  //   })
+  // );
+
+  // Array.from(document.getElementsByClassName("button2")).map((tile) =>
+  //   tile.addEventListener("click", () => {
+  //     REMOVE_HOME();
+  //   })
+  // );
 }
 
 export { home_page };
