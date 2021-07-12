@@ -16,9 +16,14 @@ body {
 
 .tile {
   border-radius: 0.2em;
-  animation: tic 3s linear infinite;
-  animation-direction: alternate;
+  animation: tic 2s linear infinite;
 }
+
+.black_tile {
+  animation: none;
+}
+
+/* <-colored tiles-> */
 
 .tic {
   background-color: rgb(125, 38, 205);
