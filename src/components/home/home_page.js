@@ -1,4 +1,6 @@
 import { TIC, TAC, TOE, BUTTON_1, BUTTON_2 } from "./helper/colored_tiles.js";
+import { ONE_PLAYERS } from "../game_board/one_players/one_players.js";
+import { TWO_PLAYERS } from "../game_board/two_players/two_players.js";
 
 function home_page() {
   // <-generates grid->
@@ -16,7 +18,7 @@ function home_page() {
     GRID.append(HOME_PAGE_TILE);
   }
 
-  // <-adds ids and classes to colored tiles->
+  // <- ids/classes appended to colored tiles->
 
   (function DECORATOR(sections) {
     const TILE_DECORATOR = function (current_id, new_id, new_class) {
@@ -24,12 +26,12 @@ function home_page() {
       TILE.id = new_id;
       TILE.className = new_class;
     };
-    sections.forEach((section_obj) => {
+    sections.map((section_obj) => {
       for (let letter in section_obj) {
         if (letter === "name") {
           continue;
         }
-        section_obj[letter].forEach((current_id) => {
+        section_obj[letter].map((current_id) => {
           const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
           const NEW_CLASS = `tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
           TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
@@ -38,31 +40,31 @@ function home_page() {
     });
   })([TIC, TAC, TOE, BUTTON_1, BUTTON_2]);
 
-  // <-adding event listeners->
+  // <-event listeners->
 
-  const BUTTON_1_WRAPPER = document.createElement("div");
-  const BUTTON_2_WRAPPER = document.createElement("div");
+  const REMOVE_HOME = () => {
+    const ALL_TILES = Array.from(document.getElementsByClassName("tile")).map(
+      (old_tile) => {
+        const NEW_TILE = old_tile.cloneNode(true);
+        old_tile.parentNode.replaceChild(NEW_TILE, old_tile);
+      }
+    );
+    document.getElementById("home").remove();
+  };
 
-  BUTTON_1_WRAPPER.setAttribute("id", "button_1_wrapper");
-  BUTTON_2_WRAPPER.setAttribute("id", "button_2_wrapper");
+  Array.from(document.getElementsByClassName("button1")).map((tile) =>
+    tile.addEventListener("click", () => {
+      REMOVE_HOME();
+      ONE_PLAYERS();
+    })
+  );
 
-  //
-  // HOME_PAGE.prepend([BUTTON_1_WRAPPER, BUTTON_2_WRAPPER]);
-  // HOME_PAGE.prepend();
-
-  // const REMOVE_HOME = () => document.getElementById("home").remove();
-
-  // Array.from(document.getElementsByClassName("button1")).map((tile) =>
-  //   tile.addEventListener("click", () => {
-  //     REMOVE_HOME();
-  //   })
-  // );
-
-  // Array.from(document.getElementsByClassName("button2")).map((tile) =>
-  //   tile.addEventListener("click", () => {
-  //     REMOVE_HOME();
-  //   })
-  // );
+  Array.from(document.getElementsByClassName("button2")).map((tile) =>
+    tile.addEventListener("click", () => {
+      REMOVE_HOME();
+      TWO_PLAYERS();
+    })
+  );
 }
 
 export { home_page };

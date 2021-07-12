@@ -2,6 +2,7 @@
 
 body {
   background: black;
+  cursor: none;
 }
 
 #grid {
@@ -16,21 +17,20 @@ body {
 .tile {
   border: 0.05em solid black;
   border-radius: 0.25em;
-  cursor: crosshair;
 }
-
 .black_tile:hover {
   background-color: rgb(0, 255, 30);
 }
-/* <-colored tiles-> */
 
-.colored_tile {
-  animation: opacity 2s linear infinite;
-}
+/* <-colored tiles-> */
 
 .tic {
   background-color: rgb(125, 38, 205);
   animation: opacity 3s linear infinite;
+}
+
+.tic:hover {
+  background-color: rgb(0, 255, 30);
 }
 
 .tac {
@@ -38,47 +38,48 @@ body {
   animation: opacity 5s linear infinite;
 }
 
+.tac:hover {
+  background-color: rgb(0, 255, 30);
+}
+
 .toe {
   background: rgb(138, 43, 226);
   animation: opacity 4s linear infinite;
 }
 
-.toe_o {
-  background: rgb(165, 42, 42);
+.toe:hover {
+  background-color: rgb(0, 255, 30);
 }
 
-.button_1_wrapper {
-  border: 1px white solid;
-  height: 100px;
-  width: 100px;
+.toe_o {
+  animation: opacity 3s linear infinite;
+  background: rgb(165, 42, 42);
 }
 
 .button1 {
   cursor: grab;
 }
 
-.button1_one {
-  background-color: rgb(125, 38, 205);
-}
-
-.button1_one_background {
-  background-color: rgb(222, 90, 90);
-}
-
-.button_2_wrapper {
-  border: 1px white solid;
-  height: 100px;
-  width: 100px;
-}
-
 .button2 {
   cursor: grab;
 }
 
-.button2_two_background {
+.button1:hover {
+  animation: opacity 8s linear infinite;
+}
+
+.button1_num {
+  background-color: rgb(125, 38, 205);
+}
+
+.button2_num {
+  background-color: rgb(127, 0, 255);
+}
+
+.button1_background {
   background-color: rgb(222, 90, 90);
 }
 
-.button2_two {
-  background-color: rgb(127, 0, 255);
+.button2_background {
+  background-color: rgb(222, 90, 90);
 }
