@@ -1,11 +1,4 @@
-import {
-  TIC,
-  TAC,
-  TOE,
-  BORDERS,
-  // PLAYERS,
-  BUTTONS,
-} from "./helper/colored_tiles.js";
+import { TIC, TAC, TOE, BUTTON_1, BUTTON_2 } from "./helper/colored_tiles.js";
 
 function home_page() {
   const HOME_PAGE = document.createElement("main");
@@ -31,16 +24,22 @@ function home_page() {
           continue;
         }
         section_obj[letter].forEach((current_id) => {
-          setTimeout(() => {
-            const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
-            const NEW_CLASS = `tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
-            TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
-          }, 100);
+          const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
+          const NEW_CLASS = `tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
+          TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
         });
       }
     });
-  })([TIC, TAC, TOE, BORDERS, BUTTONS]);
-  // })([TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS]);
+  })([TIC, TAC, TOE, BUTTON_1, BUTTON_2]);
+
+  const BUTTON_1_WRAPPER = document.createElement("div");
+  const BUTTON_2_WRAPPER = document.createElement("div");
+
+  BUTTON_1_WRAPPER.setAttribute("id", "button_1_wrapper");
+  BUTTON_2_WRAPPER.setAttribute("id", "button_2_wrapper");
+
+  HOME_PAGE.append(BUTTON_1_WRAPPER);
+  HOME_PAGE.append(BUTTON_2_WRAPPER);
 }
 
 export { home_page };

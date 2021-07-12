@@ -24,22 +24,6 @@ const TOE = {
   ],
 };
 
-const BORDERS = {
-  name: "border",
-  // top: [],
-  one: [704, 734, 764, 794, 824, 854, 884],
-  two: [705, 735, 765, 795, 825, 855, 885],
-};
-// for (let i = 510; i < 540; i = i + 2) {
-//   BORDERS.top.push(i);
-// }
-for (let i = 660; i < 675; i++) {
-  BORDERS.one.push(i);
-}
-for (let i = 675; i < 690; i++) {
-  BORDERS.two.push(i);
-}
-
 const PLAYERS = {
   name: "players",
   p: [
@@ -53,8 +37,8 @@ const PLAYERS = {
   s: [566, 567, 568, 596, 626, 627, 628, 658, 686, 687, 688],
 };
 
-const BUTTONS = {
-  name: "buttons",
+const BUTTON_1 = {
+  name: "button1",
   one: [725, 726, 727, 756, 757, 786, 787, 816, 817, 845, 846, 847, 848],
   one_background: [
     690, 691, 692, 693, 694, 695, 696, 697, 698, 699, 700, 701, 702, 703, 720,
@@ -64,6 +48,10 @@ const BUTTONS = {
     823, 840, 841, 842, 843, 844, 849, 850, 851, 852, 853, 870, 871, 872, 873,
     874, 879, 880, 881, 882, 883, 875, 876, 877, 878,
   ],
+};
+
+const BUTTON_2 = {
+  name: "button2",
   two: [741, 742, 743, 744, 774, 801, 802, 803, 804, 831, 861, 862, 863, 864],
   two_background: [
     706, 707, 708, 709, 710, 711, 712, 713, 714, 715, 716, 717, 718, 719, 736,
@@ -75,4 +63,4 @@ const BUTTONS = {
   ],
 };
 
-export { TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS };
+export { TIC, TAC, TOE, PLAYERS, BUTTON_1, BUTTON_2 };
