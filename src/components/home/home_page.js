@@ -3,7 +3,7 @@ import {
   TAC,
   TOE,
   BORDERS,
-  PLAYERS,
+  // PLAYERS,
   BUTTONS,
 } from "./helper/colored_tiles.js";
 
@@ -19,7 +19,7 @@ function home_page() {
   }
 
   // <-adds ids and classes to colored tiles->
-  (function ELEMENT_DECORATOR(sections) {
+  (function DECORATOR(sections) {
     const TILE_DECORATOR = function (current_id, new_id, new_class) {
       const TILE = document.getElementById(current_id);
       TILE.id = new_id;
@@ -31,13 +31,16 @@ function home_page() {
           continue;
         }
         section_obj[letter].forEach((current_id) => {
-          const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
-          const NEW_CLASS = `tile ${section_obj.name} ${section_obj.name}_${letter}`;
-          TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
+          setTimeout(() => {
+            const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
+            const NEW_CLASS = `tile ${section_obj.name} ${section_obj.name}_${letter}`;
+            TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
+          }, 100);
         });
       }
     });
-  })([TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS]);
+  })([TIC, TAC, TOE, BORDERS, BUTTONS]);
+  // })([TIC, TAC, TOE, BORDERS, PLAYERS, BUTTONS]);
 }
 
 export { home_page };
