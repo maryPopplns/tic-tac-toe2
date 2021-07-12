@@ -33,7 +33,7 @@ function home_page() {
         section_obj[letter].forEach((current_id) => {
           setTimeout(() => {
             const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
-            const NEW_CLASS = `tile ${section_obj.name} ${section_obj.name}_${letter}`;
+            const NEW_CLASS = `tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
             TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
           }, 100);
         });

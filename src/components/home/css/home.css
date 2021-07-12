@@ -8,7 +8,7 @@ body {
   display: grid;
   grid-template-columns: repeat(30, 1fr);
   grid-template-rows: repeat(30, 1fr);
-  gap: 0.06em;
+  gap: 0.05em;
   height: 40em;
   width: 40em;
   margin: 2em auto;
@@ -16,25 +16,27 @@ body {
 
 .tile {
   border-radius: 0.2em;
-  animation: tic 2s linear infinite;
-}
-
-.black_tile {
-  animation: none;
 }
 
 /* <-colored tiles-> */
 
+.colored_tile {
+  animation: tic 1.5s linear infinite;
+}
+
 .tic {
   background-color: rgb(125, 38, 205);
+  animation: tic 3s linear infinite;
 }
 
 .tac {
   background: rgb(127, 0, 255);
+  animation: tic 5s linear infinite;
 }
 
 .toe {
   background: rgb(138, 43, 226);
+  animation: tic 4s linear infinite;
 }
 
 .players {
