@@ -1,6 +1,8 @@
 import { TIC, TAC, TOE, BUTTON_1, BUTTON_2 } from "./helper/colored_tiles.js";
 
 function home_page() {
+  // <-generates grid->
+
   const HOME_PAGE = document.createElement("main");
   HOME_PAGE.setAttribute("id", "home");
   document.body.prepend(HOME_PAGE);
@@ -12,6 +14,7 @@ function home_page() {
   }
 
   // <-adds ids and classes to colored tiles->
+
   (function DECORATOR(sections) {
     const TILE_DECORATOR = function (current_id, new_id, new_class) {
       const TILE = document.getElementById(current_id);
@@ -32,14 +35,21 @@ function home_page() {
     });
   })([TIC, TAC, TOE, BUTTON_1, BUTTON_2]);
 
-  const BUTTON_1_WRAPPER = document.createElement("div");
-  const BUTTON_2_WRAPPER = document.createElement("div");
+  // <-adding event listeners->
 
-  BUTTON_1_WRAPPER.setAttribute("id", "button_1_wrapper");
-  BUTTON_2_WRAPPER.setAttribute("id", "button_2_wrapper");
+  const REMOVE_HOME = () => document.getElementById("home").remove();
 
-  HOME_PAGE.append(BUTTON_1_WRAPPER);
-  HOME_PAGE.append(BUTTON_2_WRAPPER);
+  Array.from(document.getElementsByClassName("button1")).map((tile) =>
+    tile.addEventListener("click", () => {
+      REMOVE_HOME();
+    })
+  );
+
+  Array.from(document.getElementsByClassName("button2")).map((tile) =>
+    tile.addEventListener("click", () => {
+      REMOVE_HOME();
+    })
+  );
 }
 
 export { home_page };

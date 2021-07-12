@@ -22,7 +22,7 @@
   --opacity-100: 1;
 }
 
-@keyframes tic {
+@keyframes opacity {
   0% {
     opacity: var(--opacity-00);
   }
