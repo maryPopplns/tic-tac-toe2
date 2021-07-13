@@ -8,7 +8,7 @@
   display: flex;
   height: 10em;
   width: 40em;
-  border: 0.25em solid red;
+  border: 0.25em solid rgba(191, 76, 76, 0.797);
 }
 
 #p_1_container {

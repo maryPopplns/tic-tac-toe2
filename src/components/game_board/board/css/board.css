@@ -2,11 +2,19 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.25em;
+  gap: 1em;
   height: 35em;
   width: 40.5em;
 }
 
-.ttt_tile {
-  border: 0.25em solid red;
+.tile_container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(8, 1fr);
+}
+
+.board_tile {
+  background-color: rgba(137, 166, 254, 0.647);
+  border: 2px solid black;
+  border-radius: 0.25em;
 }
