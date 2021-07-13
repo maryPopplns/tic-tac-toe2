@@ -1,37 +1,40 @@
-const BOARD = () => {
+import { BOARD_TRACKER } from "../../../game_logic/game_logic.js";
+
+const GAME_BOARD = () => {
   const GAME_CONTAINER = document.getElementById("game_container");
   const BOARD_CONTAINER = document.createElement("div");
-  const GRID_ONE = document.createElement("div");
-  const GRID_TWO = document.createElement("div");
-  const GRID_THREE = document.createElement("div");
-  const GRID_FOUR = document.createElement("div");
-  const GRID_FIVE = document.createElement("div");
-  const GRID_SIX = document.createElement("div");
-  const GRID_SEVEN = document.createElement("div");
-  const GRID_EIGHT = document.createElement("div");
-  const GRID_NINE = document.createElement("div");
+  const TILE_CONTAINER_0 = document.createElement("div");
+  const TILE_CONTAINER_1 = document.createElement("div");
+  const TILE_CONTAINER_2 = document.createElement("div");
+  const TILE_CONTAINER_3 = document.createElement("div");
+  const TILE_CONTAINER_4 = document.createElement("div");
+  const TILE_CONTAINER_5 = document.createElement("div");
+  const TILE_CONTAINER_6 = document.createElement("div");
+  const TILE_CONTAINER_7 = document.createElement("div");
+  const TILE_CONTAINER_8 = document.createElement("div");
+
   const TILE_CONTAINERS = [
-    GRID_ONE,
-    GRID_TWO,
-    GRID_THREE,
-    GRID_FOUR,
-    GRID_FIVE,
-    GRID_SIX,
-    GRID_SEVEN,
-    GRID_EIGHT,
-    GRID_NINE,
+    TILE_CONTAINER_0,
+    TILE_CONTAINER_1,
+    TILE_CONTAINER_2,
+    TILE_CONTAINER_3,
+    TILE_CONTAINER_4,
+    TILE_CONTAINER_5,
+    TILE_CONTAINER_6,
+    TILE_CONTAINER_7,
+    TILE_CONTAINER_8,
   ];
 
   const IDS = [
-    "grid_one",
-    "grid_two",
-    "grid_three",
-    "grid_four",
-    "grid_five",
-    "grid_six",
-    "grid_seven",
-    "grid_eight",
-    "grid_nine",
+    "tile_container_0",
+    "tile_container_1",
+    "tile_container_2",
+    "tile_container_3",
+    "tile_container_4",
+    "tile_container_5",
+    "tile_container_6",
+    "tile_container_7",
+    "tile_container_8",
   ];
 
   BOARD_CONTAINER.setAttribute("id", "board_container");
@@ -53,4 +56,4 @@ const BOARD = () => {
   });
 };
 
-export { BOARD };
+export { GAME_BOARD };

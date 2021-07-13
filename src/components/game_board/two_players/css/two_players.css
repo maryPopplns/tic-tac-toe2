@@ -1,44 +1,5 @@
 #game_container {
-  height: 45em;
+  height: 46em;
   width: 40em;
   margin: auto;
-}
-
-#score_container {
-  display: flex;
-  height: 10em;
-  width: 40em;
-  border: 0.25em solid rgba(191, 76, 76, 0.797);
-}
-
-#p_1_container {
-  display: flex;
-  height: 10em;
-  width: 20em;
-}
-
-#p_2_container {
-  display: flex;
-  height: 10em;
-  width: 20em;
-}
-
-#p_1_label {
-  height: 10em;
-  width: 10em;
-}
-
-#p_1_score {
-  height: 10em;
-  width: 10em;
-}
-
-#p_2_label {
-  height: 10em;
-  width: 10em;
-}
-
-#p_2_score {
-  height: 10em;
-  width: 10em;
 }
