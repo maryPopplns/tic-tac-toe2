@@ -1,4 +1,4 @@
-import { BOARD_TRACKER } from "../../../game_logic/game_logic.js";
+import { BOARD_LOGIC } from "../../../game_logic/game_logic.js";
 
 const GAME_BOARD = () => {
   const GAME_CONTAINER = document.getElementById("game_container");

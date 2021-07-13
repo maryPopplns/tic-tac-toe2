@@ -1,9 +1,5 @@
 @import "background_animator.css";
 
-#home {
-  cursor: none;
-}
-
 #grid {
   display: grid;
   grid-template-columns: repeat(30, 1fr);

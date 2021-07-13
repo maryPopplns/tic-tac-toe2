@@ -12,7 +12,7 @@ let board = {
   8: undefined,
 };
 
-const WINNING_POSITIONS = [
+const ALL_WINNING_POSSIBILITIES = [
   [0, 3, 6],
   [1, 4, 7],
   [2, 5, 8],
@@ -23,22 +23,37 @@ const WINNING_POSITIONS = [
   [6, 4, 2],
 ];
 
-const BOARD_TRACKER = (event) => {
+const BOARD_LOGIC = (event) => {
   const TARGET_ID = event.currentTarget.id.match(/[0-9]/g)[0];
 
-  const BOARD_CHECKER = () => {};
+  const WINNER = () => {
+    const ACTUAL_VALUES = ALL_WINNING_POSSIBILITIES.map((one_possibility) => {
+      return one_possibility.map((tile) => board[tile]);
+    });
+    const POSSIBLE_ONES = ACTUAL_VALUES.filter(
+      (one_possibility) => !one_possibility.includes(undefined)
+    );
+    const mine = POSSIBLE_ONES.filter((one_possibility) =>
+      one_possibility.every(
+        (current_value) => current_value === one_possibility[0]
+      )
+    );
+    if (mine[0] !== undefined) {
+      return mine[0][0];
+    }
+  };
 
   const PLAYER_MOVE = () => {
     if (moves % 2 === 0 && board[TARGET_ID] === undefined) {
       board[TARGET_ID] = "X";
       moves++;
-      console.log(board);
+      // console.log(board);
       // implement logic to see who wins after each move
     }
     if (moves % 2 !== 0 && board[TARGET_ID] === undefined) {
       board[TARGET_ID] = "O";
       moves++;
-      console.log(board);
+      // console.log(board);
       // implement logic to see who wins after each move
     }
   };
@@ -54,11 +69,11 @@ const BOARD_TRACKER = (event) => {
     moves = 0;
   };
 
-  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD };
+  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD, WINNER };
 };
 
 // const PLAYER = () => {
 
 // }
 
-export { BOARD_TRACKER };
+export { BOARD_LOGIC };

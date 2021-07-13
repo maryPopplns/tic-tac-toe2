@@ -1,3 +1,7 @@
+game_container {
+  cursor: crosshair !important;
+}
+
 #board_container {
   margin-top: 1em;
   display: grid;

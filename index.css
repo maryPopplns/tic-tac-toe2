@@ -5,6 +5,10 @@
 @import "./src/components/game_board/score/css/score.css";
 @import "./src/components/game_board/board/css/board.css";
 
+/* :root {
+  cursor: none;
+} */
+
 body {
   background: black;
 }
