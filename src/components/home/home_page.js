@@ -1,6 +1,8 @@
 import { TIC, TAC, TOE, BUTTON_1, BUTTON_2 } from "./helper/colored_tiles.js";
-import { ONE_PLAYERS } from "../game_board/one_players/one_players.js";
+import { ONE_PLAYER } from "../game_board/one_player/one_player.js";
 import { TWO_PLAYERS } from "../game_board/two_players/two_players.js";
+import { SCORE } from "../game_board/score/score.js";
+import { GAME_BOARD } from "../game_board/board/board.js";
 
 function home_page() {
   // <-generates grid->
@@ -42,7 +44,7 @@ function home_page() {
 
   // <-event listeners->
 
-  const REMOVE_HOME = () => {
+  const REMOVE_HOME_RENDER_BOARD = () => {
     const ALL_TILES = Array.from(document.getElementsByClassName("tile")).map(
       (old_tile) => {
         const NEW_TILE = old_tile.cloneNode(true);
@@ -50,18 +52,20 @@ function home_page() {
       }
     );
     document.getElementById("home").remove();
+    SCORE();
+    GAME_BOARD();
   };
 
   Array.from(document.getElementsByClassName("button1")).map((tile) =>
     tile.addEventListener("click", () => {
-      REMOVE_HOME();
-      ONE_PLAYERS();
+      REMOVE_HOME_RENDER_BOARD();
+      ONE_PLAYER();
     })
   );
 
   Array.from(document.getElementsByClassName("button2")).map((tile) =>
     tile.addEventListener("click", () => {
-      REMOVE_HOME();
+      REMOVE_HOME_RENDER_BOARD();
       TWO_PLAYERS();
     })
   );
