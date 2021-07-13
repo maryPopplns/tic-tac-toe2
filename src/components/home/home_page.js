@@ -14,7 +14,7 @@ function home_page() {
   for (let i = 0; i < 900; i++) {
     const HOME_PAGE_TILE = document.createElement("div");
     HOME_PAGE_TILE.setAttribute("id", i);
-    HOME_PAGE_TILE.setAttribute("class", "tile black_tile");
+    HOME_PAGE_TILE.setAttribute("class", "home_tile black_tile");
     GRID.append(HOME_PAGE_TILE);
   }
 
@@ -33,7 +33,7 @@ function home_page() {
         }
         section_obj[letter].map((current_id) => {
           const NEW_ID = `${section_obj.name}_${letter}_${current_id}`;
-          const NEW_CLASS = `tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
+          const NEW_CLASS = `home_tile colored_tile ${section_obj.name} ${section_obj.name}_${letter}`;
           TILE_DECORATOR(current_id, NEW_ID, NEW_CLASS);
         });
       }

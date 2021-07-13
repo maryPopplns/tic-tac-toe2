@@ -13,52 +13,56 @@
   margin: 2em auto;
 }
 
-.tile {
+.home_tile {
   border: 0.05em solid black;
   border-radius: 0.25em;
 }
+
 .black_tile:hover {
-  background-color: white;
+  background-color: rgb(0, 255, 60);
+  animation: opacity 7s linear infinite;
 }
 
 /* <-colored tiles-> */
 
 .tic {
   background-color: rgb(125, 38, 205);
-  animation: opacity 3s linear infinite;
+  animation: opacity 4s linear infinite;
 }
 
 .tic:hover {
-  background-color: rgb(255, 191, 0);
-  transform: scale(1.3);
-  z-index: 1;
+  background-color: rgb(165, 42, 42);
+  animation: opacity 4s linear infinite;
 }
 
 .tac {
   background: rgb(127, 0, 255);
-  animation: opacity 5s linear infinite;
+  animation: opacity 7s linear infinite;
 }
 
 .tac:hover {
-  background-color: rgb(255, 183, 0);
-  transform: scale(1.3);
-  z-index: 1;
+  background-color: rgb(165, 42, 42);
+  animation: opacity 7s linear infinite;
 }
 
 .toe {
   background: rgb(138, 43, 226);
-  animation: opacity 4s linear infinite;
+  animation: opacity 8s linear infinite;
 }
 
 .toe:hover {
-  background-color: rgb(255, 213, 0);
-  transform: scale(1.3);
-  z-index: 1;
+  background-color: rgb(165, 42, 42);
+  animation: opacity 8s linear infinite;
 }
 
 .toe_o {
-  animation: opacity 2s linear infinite;
+  animation: opacity 3s linear infinite;
   background: rgb(165, 42, 42);
+}
+
+.toe_o:hover {
+  animation: opacity 3s linear infinite;
+  background: rgb(0, 255, 60);
 }
 
 .button1 {
