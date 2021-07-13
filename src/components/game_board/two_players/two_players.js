@@ -1,5 +1,9 @@
+import { SCORE } from "./helper/score.js";
+import { BOARD } from "../board/board.jss";
+
 const TWO_PLAYERS = () => {
-  console.log("two players");
+  SCORE();
+  BOARD();
 };
 
 export { TWO_PLAYERS };

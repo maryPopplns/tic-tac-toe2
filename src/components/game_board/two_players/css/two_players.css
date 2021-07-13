@@ -1,0 +1,51 @@
+#game_container {
+  border: 1px solid white;
+  height: 45em;
+  width: 40em;
+  margin: auto;
+}
+
+#score_container {
+  display: flex;
+  border: 1px solid white;
+  height: 10em;
+  width: 40em;
+}
+
+#p_1_container {
+  display: flex;
+  border: 1px solid white;
+  height: 10em;
+  width: 20em;
+}
+
+#p_2_container {
+  border: 1px solid white;
+  display: flex;
+  height: 10em;
+  width: 20em;
+}
+
+#p_1_label {
+  height: 10em;
+  width: 10em;
+  border: 1px solid white;
+}
+
+#p_1_score {
+  height: 10em;
+  width: 10em;
+  border: 1px solid white;
+}
+
+#p_2_label {
+  height: 10em;
+  width: 10em;
+  border: 1px solid white;
+}
+
+#p_2_score {
+  height: 10em;
+  width: 10em;
+  border: 1px solid white;
+}
