@@ -1,0 +1,12 @@
+#board_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.25em;
+  height: 35em;
+  width: 40.5em;
+}
+
+.ttt_tile {
+  border: 0.25em solid red;
+}

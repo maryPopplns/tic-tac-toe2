@@ -1,5 +1,5 @@
 const ONE_PLAYERS = () => {
-  console.log("one players");
+  // DIFFICULTY()
 };
 
 export { ONE_PLAYERS };

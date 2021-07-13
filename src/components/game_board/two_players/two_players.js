@@ -1,5 +1,5 @@
 import { SCORE } from "./helper/score.js";
-import { BOARD } from "../board/board.jss";
+import { BOARD } from "../board/board.js";
 
 const TWO_PLAYERS = () => {
   SCORE();
