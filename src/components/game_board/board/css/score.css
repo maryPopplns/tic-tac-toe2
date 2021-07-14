@@ -3,11 +3,12 @@
   justify-content: space-around;
   height: 10em;
   width: 42em;
-  /* border: 0.25em solid rgba(191, 76, 76, 0.797); */
+  border-bottom: 1px solid white;
+  padding: 10px;
 }
 
 #p_1_container {
-  border-right: 1px solid white;
+  border-right: 3px solid white;
   display: flex;
   justify-content: space-around;
   height: 10em;
@@ -15,7 +16,7 @@
 }
 
 #p_2_container {
-  border-left: 1px solid white;
+  border-left: 3px solid white;
   display: flex;
   justify-content: space-around;
   height: 10em;
@@ -31,6 +32,7 @@
 }
 
 .score_tile {
+  border: 1px solid white;
   border-radius: 0.125em;
 }
 

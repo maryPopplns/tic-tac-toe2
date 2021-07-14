@@ -1,11 +1,19 @@
 import { GAME_BOARD } from "../board/board.js";
+import { LABELS } from "../board/helper/colored_tiles.js";
 import { BOARD_LOGIC, PLAYER } from "../../../game_logic/game_logic.js";
 
 const TWO_PLAYERS = () => {
-  // <-event listeners->
-
   const PLAYER_ONE = PLAYER("one", "X");
   const PLAYER_TWO = PLAYER("two", "O");
+
+  // <-adding ids to p_2_label tiles->
+
+  Array.from(document.getElementsByClassName("p_2_label")).map((tile) => {
+    const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
+    if (LABELS.p_2_label.includes(ID)) {
+      tile.setAttribute("class", "p_2_label_colored");
+    }
+  });
 
   // <-event listeners for ttt-grid->
 

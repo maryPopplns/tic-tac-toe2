@@ -1,4 +1,4 @@
-import { TWO_PLAYER_SCORE } from "./helper/colored_tiles.js";
+import { LABELS } from "./helper/colored_tiles.js";
 
 const SCORE = () => {
   const GAME_CONTAINER = document.createElement("main");
@@ -55,20 +55,10 @@ const SCORE = () => {
 
   // <-adding ids to P_1_label tiles->
 
-  let mine = TWO_PLAYER_SCORE;
-  console.log(TWO_PLAYER_SCORE.p_1_label);
-
   Array.from(document.getElementsByClassName("p_1_label")).map((tile) => {
     const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
-    if (TWO_PLAYER_SCORE.p_1_label.includes(ID)) {
+    if (LABELS.p_1_label.includes(ID)) {
       tile.setAttribute("class", "p_1_label_colored");
-    }
-  });
-
-  Array.from(document.getElementsByClassName("p_2_label")).map((tile) => {
-    const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
-    if (TWO_PLAYER_SCORE.p_2_label.includes(ID)) {
-      tile.setAttribute("class", "p_2_label_colored");
     }
   });
 };
