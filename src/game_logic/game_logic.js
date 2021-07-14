@@ -33,28 +33,30 @@ const BOARD_LOGIC = (event) => {
     const POSSIBLE_ONES = ACTUAL_VALUES.filter(
       (one_possibility) => !one_possibility.includes(undefined)
     );
-    const mine = POSSIBLE_ONES.filter((one_possibility) =>
+    const WINNER = POSSIBLE_ONES.filter((one_possibility) =>
       one_possibility.every(
         (current_value) => current_value === one_possibility[0]
       )
     );
-    if (mine[0] !== undefined) {
-      return mine[0][0];
+    if (WINNER[0] !== undefined) {
+      return WINNER[0][0];
     }
   };
 
   const PLAYER_MOVE = () => {
+    const PLAYER_MOVE_HELPER = () => {
+      moves++;
+      if (WINNER() !== undefined) {
+        return WINNER();
+      }
+    };
     if (moves % 2 === 0 && board[TARGET_ID] === undefined) {
       board[TARGET_ID] = "X";
-      moves++;
-      // console.log(board);
-      // implement logic to see who wins after each move
+      PLAYER_MOVE_HELPER();
     }
     if (moves % 2 !== 0 && board[TARGET_ID] === undefined) {
       board[TARGET_ID] = "O";
-      moves++;
-      // console.log(board);
-      // implement logic to see who wins after each move
+      PLAYER_MOVE_HELPER();
     }
   };
 
@@ -69,7 +71,7 @@ const BOARD_LOGIC = (event) => {
     moves = 0;
   };
 
-  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD, WINNER };
+  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD };
 };
 
 // const PLAYER = () => {

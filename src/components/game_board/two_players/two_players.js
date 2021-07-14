@@ -6,9 +6,8 @@ const TWO_PLAYERS = () => {
   // <-event listeners->
   [...document.getElementsByClassName("tile_container")].map((container) =>
     container.addEventListener("click", (e) => {
-      let BOARD = BOARD_LOGIC(e);
+      const BOARD = BOARD_LOGIC(e);
       BOARD.PLAYER_MOVE();
-      BOARD.WINNER();
     })
   );
 };
