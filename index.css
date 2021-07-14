@@ -1,7 +1,5 @@
 @import "./src/reset.css";
 @import "./src/components/home/css/home.css";
-@import "./src/components/game_board/one_player/css/one_player.css";
-@import "./src/components/game_board/two_players/css/two_players.css";
 @import "./src/components/game_board/board/css/score.css";
 @import "./src/components/game_board/board/css/board.css";
 

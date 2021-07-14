@@ -17,5 +17,5 @@
 .board_tile {
   background-color: rgba(137, 166, 254, 0.647);
   border: 2px solid black;
-  border-radius: 0.25em;
+  border-radius: 0.125em;
 }

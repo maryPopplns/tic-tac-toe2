@@ -11,7 +11,7 @@ const ONE_PLAYER = () => {
   Array.from(document.getElementsByClassName("p_2_label")).map((tile) => {
     const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
     if (LABELS.AI.includes(ID)) {
-      tile.setAttribute("class", "ai_label_colored");
+      tile.className += " ai_label_colored";
     }
   });
 };

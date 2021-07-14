@@ -2,13 +2,11 @@
   display: flex;
   justify-content: space-around;
   height: 10em;
-  width: 42em;
-  border-bottom: 1px solid white;
+  width: 41em;
   padding: 10px;
 }
 
 #p_1_container {
-  border-right: 3px solid white;
   display: flex;
   justify-content: space-around;
   height: 10em;
@@ -16,7 +14,6 @@
 }
 
 #p_2_container {
-  border-left: 3px solid white;
   display: flex;
   justify-content: space-around;
   height: 10em;
@@ -29,19 +26,30 @@
   grid-template-rows: repeat(10, 1fr);
   height: 10em;
   width: 10em;
+  border: 1px solid black;
 }
 
 .score_tile {
-  border: 1px solid white;
   border-radius: 0.125em;
 }
 
 .p_1_label_colored {
-  border-radius: 0.125em;
   background-color: blueviolet;
+  border: 1px solid black;
 }
 
 .p_2_label_colored {
+  background-color: blueviolet;
+  border: 1px solid black;
+}
+
+.ai_label_colored {
   border-radius: 0.125em;
   background-color: blueviolet;
+  border: 1px solid black;
+}
+
+.score_zero {
+  background-color: rgb(201, 75, 75);
+  border: 1px solid black;
 }

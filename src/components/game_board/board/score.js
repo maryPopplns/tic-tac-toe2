@@ -1,4 +1,4 @@
-import { LABELS } from "./helper/colored_tiles.js";
+import { LABELS, NUMS } from "./helper/colored_tiles.js";
 
 const SCORE = () => {
   const GAME_CONTAINER = document.createElement("main");
@@ -42,14 +42,6 @@ const SCORE = () => {
         `score_tile ${ID_CLASS[container_index]}`
       );
       BLOCKS[container_index].append(GRID_TILE);
-      GRID_TILE.addEventListener(
-        "click",
-        (e) => (e.target.style.backgroundColor = "Red")
-      );
-      GRID_TILE.addEventListener(
-        "dblclick",
-        (e) => (e.target.style.backgroundColor = "black")
-      );
     }
   });
 
@@ -58,7 +50,22 @@ const SCORE = () => {
   Array.from(document.getElementsByClassName("p_1_label")).map((tile) => {
     const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
     if (LABELS.p_1_label.includes(ID)) {
-      tile.setAttribute("class", "p_1_label_colored");
+      tile.className += " p_1_label_colored";
+    }
+  });
+
+  // <-starting scores->
+  Array.from(document.getElementsByClassName("p_1_score")).map((tile) => {
+    const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
+    if (NUMS.zero.includes(ID)) {
+      tile.className += " score_zero";
+    }
+  });
+
+  Array.from(document.getElementsByClassName("p_2_score")).map((tile) => {
+    const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
+    if (NUMS.zero.includes(ID)) {
+      tile.className += " score_zero";
     }
   });
 };
