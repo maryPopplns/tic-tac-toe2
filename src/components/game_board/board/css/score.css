@@ -1,5 +1,6 @@
 #score_container {
   display: flex;
+  margin: auto;
   justify-content: space-around;
   height: 10em;
   width: 41em;
@@ -7,6 +8,7 @@
 }
 
 #p_1_container {
+  margin-right: 3em;
   display: flex;
   justify-content: space-around;
   height: 10em;
@@ -14,6 +16,7 @@
 }
 
 #p_2_container {
+  margin-left: 3em;
   display: flex;
   justify-content: space-around;
   height: 10em;
