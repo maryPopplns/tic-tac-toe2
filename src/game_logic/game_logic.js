@@ -1,6 +1,6 @@
-let moves = 0;
+let _moves = 0;
 
-let board = {
+let _board = {
   0: undefined,
   1: undefined,
   2: undefined,
@@ -12,7 +12,7 @@ let board = {
   8: undefined,
 };
 
-const ALL_WINNING_POSSIBILITIES = [
+const _ALL_WINNING_POSSIBILITIES = [
   [0, 3, 6],
   [1, 4, 7],
   [2, 5, 8],
@@ -26,37 +26,37 @@ const ALL_WINNING_POSSIBILITIES = [
 const BOARD_LOGIC = (event) => {
   const TARGET_ID = event.currentTarget.id.match(/[0-9]/g)[0];
 
-  const WINNER = () => {
-    const ACTUAL_VALUES = ALL_WINNING_POSSIBILITIES.map((one_possibility) => {
-      return one_possibility.map((tile) => board[tile]);
+  const _WINNER = () => {
+    const ACTUAL_VALUES = _ALL_WINNING_POSSIBILITIES.map((one_possibility) => {
+      return one_possibility.map((tile) => _board[tile]);
     });
     const POSSIBLE_ONES = ACTUAL_VALUES.filter(
       (one_possibility) => !one_possibility.includes(undefined)
     );
-    const WINNER = POSSIBLE_ONES.filter((one_possibility) =>
+    const _WINNER = POSSIBLE_ONES.filter((one_possibility) =>
       one_possibility.every(
         (current_value) => current_value === one_possibility[0]
       )
     );
-    if (WINNER[0] !== undefined) {
-      return WINNER[0][0];
+    if (_WINNER[0] !== undefined) {
+      return _WINNER[0][0];
     }
   };
 
   const PLAYER_MOVE = () => {
-    const PLAYER_MOVE_HELPER = () => {
-      moves++;
-      if (WINNER() !== undefined) {
-        return WINNER();
+    const WINNER_CHECKER = () => {
+      _moves++;
+      if (_WINNER() !== undefined) {
+        return _WINNER();
       }
     };
-    if (moves % 2 === 0 && board[TARGET_ID] === undefined) {
-      board[TARGET_ID] = "X";
-      PLAYER_MOVE_HELPER();
+    if (_moves % 2 === 0 && _board[TARGET_ID] === undefined) {
+      _board[TARGET_ID] = "X";
+      return WINNER_CHECKER();
     }
-    if (moves % 2 !== 0 && board[TARGET_ID] === undefined) {
-      board[TARGET_ID] = "O";
-      PLAYER_MOVE_HELPER();
+    if (_moves % 2 !== 0 && _board[TARGET_ID] === undefined) {
+      _board[TARGET_ID] = "O";
+      return WINNER_CHECKER();
     }
   };
 
@@ -65,17 +65,31 @@ const BOARD_LOGIC = (event) => {
   };
 
   const CLEAR_BOARD = () => {
-    for (let prop in board) {
-      board[prop] = undefined;
+    for (let prop in _board) {
+      _board[prop] = undefined;
     }
-    moves = 0;
+    _moves = 0;
   };
 
   return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD };
 };
 
-// const PLAYER = () => {
+const PLAYER = (name, game_piece) => {
+  const _NAME = name;
+  const _GAME_PIECE = game_piece;
+  let _score = 0;
 
-// }
+  const INCREASE_SCORE = () => _score++;
+  const RETURN_SCORE = () => _score;
+  const RETURN_PIECE = () => _GAME_PIECE;
+  const RETURN_NAME = () => _NAME;
 
-export { BOARD_LOGIC };
+  return {
+    INCREASE_SCORE,
+    RETURN_SCORE,
+    RETURN_PIECE,
+    RETURN_NAME,
+  };
+};
+
+export { BOARD_LOGIC, PLAYER };

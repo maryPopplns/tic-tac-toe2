@@ -1,7 +1,7 @@
 import { TIC, TAC, TOE, BUTTON_1, BUTTON_2 } from "./helper/colored_tiles.js";
 import { ONE_PLAYER } from "../game_board/one_player/one_player.js";
 import { TWO_PLAYERS } from "../game_board/two_players/two_players.js";
-import { SCORE } from "../game_board/score/score.js";
+import { SCORE } from "../game_board/board/score.js";
 import { GAME_BOARD } from "../game_board/board/board.js";
 
 function home_page() {
