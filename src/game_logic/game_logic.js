@@ -1,4 +1,5 @@
 import { GAME_PIECES } from "../components/game_board/board/helper/colored_tiles.js";
+import { home_page } from "../components/home/home_page.js";
 
 let _moves = 0;
 
@@ -95,13 +96,18 @@ const BOARD_LOGIC = (event) => {
       _board[prop] = undefined;
     }
     _moves = 0;
-
     Array.from(document.getElementsByClassName("board_tile")).map((tile) => {
       tile.style.backgroundColor = "";
     });
   };
 
-  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD };
+  const GAME_OVER = () => {
+    document.getElementById("game_container").remove();
+    // <-add a page to declare the winner->
+    document.body.prepend(home_page());
+  };
+
+  return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD, GAME_OVER };
 };
 
 const PLAYER = (name, game_piece) => {

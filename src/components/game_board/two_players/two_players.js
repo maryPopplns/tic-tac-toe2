@@ -38,11 +38,17 @@ const TWO_PLAYERS = () => {
           PLAYER_ONE.INCREASE_SCORE();
           BOARD.CLEAR_BOARD();
           score_changer(PLAYER_ONE, "p_1_score", "#c94b4b");
+          if (PLAYER_ONE.RETURN_SCORE() === 5) {
+            BOARD.GAME_OVER();
+          }
         }
         if (WINNER === "O") {
           PLAYER_TWO.INCREASE_SCORE();
           BOARD.CLEAR_BOARD();
           score_changer(PLAYER_TWO, "p_2_score", "#8a2be2");
+          if (PLAYER_TWO.RETURN_SCORE() === 5) {
+            BOARD.GAME_OVER();
+          }
         }
       })
   );

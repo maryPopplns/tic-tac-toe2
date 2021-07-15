@@ -45,7 +45,7 @@ function home_page() {
   // <-event listeners->
 
   const REMOVE_HOME_RENDER_BOARD = () => {
-    const ALL_TILES = Array.from(document.getElementsByClassName("tile")).map(
+    const HOME_TILES = Array.from(document.getElementsByClassName("tile")).map(
       (old_tile) => {
         const NEW_TILE = old_tile.cloneNode(true);
         old_tile.parentNode.replaceChild(NEW_TILE, old_tile);
