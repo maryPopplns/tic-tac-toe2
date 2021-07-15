@@ -3,9 +3,9 @@
 @import "./src/components/game_board/board/css/score.css";
 @import "./src/components/game_board/board/css/board.css";
 
-/* :root {
+:root {
   cursor: none;
-} */
+}
 
 body {
   background: black;

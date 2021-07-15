@@ -49,6 +49,9 @@ const BOARD_LOGIC = (event) => {
       if (_WINNER() !== undefined) {
         return _WINNER();
       }
+      if (_moves === 9) {
+        CLEAR_BOARD();
+      }
     };
     if (_moves % 2 === 0 && _board[TARGET_ID] === undefined) {
       _board[TARGET_ID] = "X";
@@ -93,5 +96,6 @@ const PLAYER = (name, game_piece) => {
 };
 
 const GET_MOVES = () => _moves;
+const GET_BOARD = () => _board;
 
-export { BOARD_LOGIC, PLAYER, GET_MOVES };
+export { BOARD_LOGIC, PLAYER, GET_MOVES, GET_BOARD };

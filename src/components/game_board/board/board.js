@@ -1,4 +1,8 @@
-import { BOARD_LOGIC, GET_MOVES } from "../../../game_logic/game_logic.js";
+import {
+  BOARD_LOGIC,
+  GET_MOVES,
+  GET_BOARD,
+} from "../../../game_logic/game_logic.js";
 import { GAME_PIECES } from "../board/helper/colored_tiles.js";
 
 const GAME_BOARD = () => {
@@ -55,8 +59,7 @@ const GAME_BOARD = () => {
     for (let i = 0; i < 64; i++) {
       const TILE = document.createElement("div");
       TILE.setAttribute("class", `board_tile ${IDS[id]}`);
-      // <-no need for ID's right now->
-      // TILE.setAttribute("id", `${IDS[id]}_${i}`);
+      TILE.setAttribute("id", `${IDS[id]}_${i}`);
       tile_container.append(TILE);
     }
   });
@@ -66,25 +69,38 @@ const GAME_BOARD = () => {
   Array.from(document.getElementsByClassName("tile_container_listener")).map(
     (container) => {
       container.addEventListener("mouseenter", (event) => {
-        const ID = +event.currentTarget.id.match(/\d/g)[0];
-        console.log(ID);
+        const CONTAINER_ID = +event.currentTarget.id.match(/\d/g)[0];
+        Array.from(
+          document.getElementsByClassName(`container_${CONTAINER_ID}`)
+        ).map((tile) => {
+          // tile.style.border = "1px solid #3939394d";
+          const TILE_ID = +tile.id.match(/\d/g).slice(1).join("");
+          // <-want to only highlight when the board piece is empty
+          if (1) {
+            if (GET_MOVES() % 2 === 0) {
+              if (GAME_PIECES.x.includes(TILE_ID)) {
+                tile.style.backgroundColor = "rgb(165, 42, 42)";
+              }
+            }
+            if (GET_MOVES() % 2 !== 0) {
+              if (GAME_PIECES.o.includes(TILE_ID)) {
+                tile.style.backgroundColor = "rgb(165, 42, 42)";
+              }
+            }
+          }
+        });
       });
 
       container.addEventListener("mouseleave", (event) => {
         const ID = +event.currentTarget.id.match(/\d/g)[0];
-        console.log(ID);
+        Array.from(document.getElementsByClassName(`container_${ID}`)).map(
+          (tile) => {
+            tile.style.backgroundColor = "";
+          }
+        );
       });
     }
   );
-
-  // Array.from(document.getElementsByClassName("tile_container_0")).map(
-  //   (tile) => {
-  //     let id = +tile.id.match(/\d/g).slice(1).join("");
-  //     if (GAME_PIECES.o.includes(id)) {
-  //       tile.style.backgroundColor = "red";
-  //     }
-  //   }
-  // );
 };
 
 export { GAME_BOARD };
