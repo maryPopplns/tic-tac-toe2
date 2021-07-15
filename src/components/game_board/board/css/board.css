@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
+  background-color: rgba(57, 57, 57, 0.3);
   gap: 1em;
   height: 35em;
   width: 42em;
@@ -15,7 +16,6 @@
 }
 
 .board_tile {
-  background-color: rgba(137, 166, 254, 0.647);
-  border: 2px solid black;
+  border: 2px solid rgba(57, 57, 57, 0.3);
   border-radius: 0.125em;
 }

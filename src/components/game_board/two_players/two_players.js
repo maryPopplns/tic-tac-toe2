@@ -22,7 +22,6 @@ const TWO_PLAYERS = () => {
       container.addEventListener("click", (e) => {
         const BOARD = BOARD_LOGIC(e);
         let WINNER = BOARD.PLAYER_MOVE();
-
         if (WINNER === "X") {
           PLAYER_ONE.INCREASE_SCORE();
           BOARD.CLEAR_BOARD();

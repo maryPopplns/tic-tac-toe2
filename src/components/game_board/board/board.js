@@ -1,4 +1,5 @@
-import { BOARD_LOGIC } from "../../../game_logic/game_logic.js";
+import { BOARD_LOGIC, GET_MOVES } from "../../../game_logic/game_logic.js";
+import { GAME_PIECES } from "../board/helper/colored_tiles.js";
 
 const GAME_BOARD = () => {
   const GAME_CONTAINER = document.getElementById("game_container");
@@ -26,21 +27,24 @@ const GAME_BOARD = () => {
   ];
 
   const IDS = [
-    "tile_container_0",
-    "tile_container_1",
-    "tile_container_2",
-    "tile_container_3",
-    "tile_container_4",
-    "tile_container_5",
-    "tile_container_6",
-    "tile_container_7",
-    "tile_container_8",
+    "container_0",
+    "container_1",
+    "container_2",
+    "container_3",
+    "container_4",
+    "container_5",
+    "container_6",
+    "container_7",
+    "container_8",
   ];
 
   BOARD_CONTAINER.setAttribute("id", "board_container");
   for (let i = 0; i < 9; i++) {
     TILE_CONTAINERS[i].setAttribute("id", `tile_container_${i}`);
-    TILE_CONTAINERS[i].setAttribute("class", `tile_container`);
+    TILE_CONTAINERS[i].setAttribute(
+      "class",
+      `tile_container tile_container_listener`
+    );
   }
   for (let i = 0; i < 9; i++) {
     BOARD_CONTAINER.append(TILE_CONTAINERS[i]);
@@ -51,9 +55,36 @@ const GAME_BOARD = () => {
     for (let i = 0; i < 64; i++) {
       const TILE = document.createElement("div");
       TILE.setAttribute("class", `board_tile ${IDS[id]}`);
+      // <-no need for ID's right now->
+      // TILE.setAttribute("id", `${IDS[id]}_${i}`);
       tile_container.append(TILE);
     }
   });
+
+  // <--gets elements by class and changes background color
+
+  Array.from(document.getElementsByClassName("tile_container_listener")).map(
+    (container) => {
+      container.addEventListener("mouseenter", (event) => {
+        const ID = +event.currentTarget.id.match(/\d/g)[0];
+        console.log(ID);
+      });
+
+      container.addEventListener("mouseleave", (event) => {
+        const ID = +event.currentTarget.id.match(/\d/g)[0];
+        console.log(ID);
+      });
+    }
+  );
+
+  // Array.from(document.getElementsByClassName("tile_container_0")).map(
+  //   (tile) => {
+  //     let id = +tile.id.match(/\d/g).slice(1).join("");
+  //     if (GAME_PIECES.o.includes(id)) {
+  //       tile.style.backgroundColor = "red";
+  //     }
+  //   }
+  // );
 };
 
 export { GAME_BOARD };

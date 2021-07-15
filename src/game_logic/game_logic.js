@@ -92,4 +92,6 @@ const PLAYER = (name, game_piece) => {
   };
 };
 
-export { BOARD_LOGIC, PLAYER };
+const GET_MOVES = () => _moves;
+
+export { BOARD_LOGIC, PLAYER, GET_MOVES };
