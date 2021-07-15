@@ -1,5 +1,5 @@
 import { GAME_BOARD } from "../board/board.js";
-import { LABELS } from "../board/helper/colored_tiles.js";
+import { LABELS, SCORE } from "../board/helper/colored_tiles.js";
 import { BOARD_LOGIC, PLAYER } from "../../../game_logic/game_logic.js";
 
 const TWO_PLAYERS = () => {
@@ -22,15 +22,27 @@ const TWO_PLAYERS = () => {
       container.addEventListener("click", (e) => {
         const BOARD = BOARD_LOGIC(e);
         let WINNER = BOARD.PLAYER_MOVE();
+
+        let score_changer = (player, className, color) => {
+          Array.from(document.getElementsByClassName(className)).map((tile) => {
+            const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
+            if (SCORE[player.RETURN_SCORE()].includes(ID)) {
+              tile.style.backgroundColor = color;
+            } else {
+              tile.style.backgroundColor = "black";
+            }
+          });
+        };
+
         if (WINNER === "X") {
           PLAYER_ONE.INCREASE_SCORE();
           BOARD.CLEAR_BOARD();
-          console.log(PLAYER_ONE.RETURN_SCORE());
+          score_changer(PLAYER_ONE, "p_1_score", "#c94b4b");
         }
         if (WINNER === "O") {
           PLAYER_TWO.INCREASE_SCORE();
           BOARD.CLEAR_BOARD();
-          console.log(PLAYER_TWO.RETURN_SCORE());
+          score_changer(PLAYER_TWO, "p_2_score", "#8a2be2");
         }
       })
   );

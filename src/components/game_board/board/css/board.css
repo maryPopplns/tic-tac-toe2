@@ -6,14 +6,14 @@
   background-color: rgba(57, 57, 57, 0.3);
   gap: 1em;
   height: 35em;
-  width: 32em;
+  width: 35em;
 }
 
 .tile_container {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-columns: repeat(8, 1fr);
-  gap: 0.125em;
+  gap: 1px;
 }
 
 .board_tile {

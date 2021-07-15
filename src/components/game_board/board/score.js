@@ -58,14 +58,14 @@ const SCORE = () => {
   Array.from(document.getElementsByClassName("p_1_score")).map((tile) => {
     const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
     if (NUMS.zero.includes(ID)) {
-      tile.className += " score_zero";
+      tile.className += " p_1_score_container";
     }
   });
 
   Array.from(document.getElementsByClassName("p_2_score")).map((tile) => {
     const ID = +tile.id.match(/[0-9]/g).slice(1).join("");
     if (NUMS.zero.includes(ID)) {
-      tile.className += " score_zero";
+      tile.className += " p_2_score_container";
     }
   });
 };

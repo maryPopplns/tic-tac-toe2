@@ -37,12 +37,7 @@
 }
 
 .p_1_label_colored {
-  background-color: blueviolet;
-  border: 1px solid black;
-}
-
-.p_2_label_colored {
-  background-color: blueviolet;
+  background-color: #c94b4b;
   border: 1px solid black;
 }
 
@@ -52,7 +47,25 @@
   border: 1px solid black;
 }
 
-.score_zero {
-  background-color: rgb(201, 75, 75);
+.p_1_score_container {
+  background-color: #c94b4b;
+  border: 1px solid black;
+}
+
+.p_1_score {
+  border: 1px solid black;
+}
+
+.p_2_score {
+  border: 1px solid black;
+}
+
+.p_2_label_colored {
+  background-color: blueviolet;
+  border: 1px solid black;
+}
+
+.p_2_score_container {
+  background-color: blueviolet;
   border: 1px solid black;
 }

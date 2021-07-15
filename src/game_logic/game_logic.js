@@ -1,3 +1,5 @@
+import { GAME_PIECES } from "../components/game_board/board/helper/colored_tiles.js";
+
 let _moves = 0;
 
 let _board = {
@@ -53,12 +55,33 @@ const BOARD_LOGIC = (event) => {
         CLEAR_BOARD();
       }
     };
+
+    const MARK_BOARD = () => {
+      Array.from(document.getElementsByClassName(`container_${TARGET_ID}`)).map(
+        (tile) => {
+          const TILE_ID = +tile.id.match(/\d/g).slice(1).join("");
+          if (_moves % 2 === 0) {
+            if (GAME_PIECES.x.includes(TILE_ID)) {
+              tile.style.backgroundColor = "#c94b4b";
+            }
+          }
+          if (_moves % 2 !== 0) {
+            if (GAME_PIECES.o.includes(TILE_ID)) {
+              tile.style.backgroundColor = "#8a2be2";
+            }
+          }
+        }
+      );
+    };
+
     if (_moves % 2 === 0 && _board[TARGET_ID] === undefined) {
       _board[TARGET_ID] = "X";
+      MARK_BOARD();
       return WINNER_CHECKER();
     }
     if (_moves % 2 !== 0 && _board[TARGET_ID] === undefined) {
       _board[TARGET_ID] = "O";
+      MARK_BOARD();
       return WINNER_CHECKER();
     }
   };
@@ -72,6 +95,10 @@ const BOARD_LOGIC = (event) => {
       _board[prop] = undefined;
     }
     _moves = 0;
+
+    Array.from(document.getElementsByClassName("board_tile")).map((tile) => {
+      tile.style.backgroundColor = "";
+    });
   };
 
   return { PLAYER_MOVE, AI_MOVE, CLEAR_BOARD };

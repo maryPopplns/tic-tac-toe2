@@ -76,15 +76,15 @@ const GAME_BOARD = () => {
           // tile.style.border = "1px solid #3939394d";
           const TILE_ID = +tile.id.match(/\d/g).slice(1).join("");
           // <-want to only highlight when the board piece is empty
-          if (1) {
+          if (GET_BOARD()[CONTAINER_ID] === undefined) {
             if (GET_MOVES() % 2 === 0) {
               if (GAME_PIECES.x.includes(TILE_ID)) {
-                tile.style.backgroundColor = "rgb(165, 42, 42)";
+                tile.style.backgroundColor = "rgb(0, 255, 60)";
               }
             }
             if (GET_MOVES() % 2 !== 0) {
               if (GAME_PIECES.o.includes(TILE_ID)) {
-                tile.style.backgroundColor = "rgb(165, 42, 42)";
+                tile.style.backgroundColor = "rgb(0, 255, 60)";
               }
             }
           }
@@ -92,12 +92,14 @@ const GAME_BOARD = () => {
       });
 
       container.addEventListener("mouseleave", (event) => {
-        const ID = +event.currentTarget.id.match(/\d/g)[0];
-        Array.from(document.getElementsByClassName(`container_${ID}`)).map(
-          (tile) => {
+        const CONTAINER_ID = +event.currentTarget.id.match(/\d/g)[0];
+        if (GET_BOARD()[CONTAINER_ID] === undefined) {
+          Array.from(
+            document.getElementsByClassName(`container_${CONTAINER_ID}`)
+          ).map((tile) => {
             tile.style.backgroundColor = "";
-          }
-        );
+          });
+        }
       });
     }
   );
