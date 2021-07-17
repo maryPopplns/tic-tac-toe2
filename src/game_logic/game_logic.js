@@ -46,51 +46,117 @@ const BOARD_LOGIC = (event) => {
     }
   };
 
-  const PLAYER_MOVE = () => {
-    const WINNER_CHECKER = () => {
-      _moves++;
-      if (_WINNER() !== undefined) {
-        return _WINNER();
+  const _MARK_BOARD = () => {
+    Array.from(document.getElementsByClassName(`container_${TARGET_ID}`)).map(
+      (tile) => {
+        const TILE_ID = +tile.id.match(/\d/g).slice(1).join("");
+        if (_moves % 2 === 0) {
+          if (GAME_PIECES.x.includes(TILE_ID)) {
+            tile.style.backgroundColor = "#c94b4b";
+          }
+        }
+        if (_moves % 2 !== 0) {
+          if (GAME_PIECES.o.includes(TILE_ID)) {
+            tile.style.backgroundColor = "#8a2be2";
+          }
+        }
       }
-      if (_moves === 9) {
-        CLEAR_BOARD();
-      }
-    };
+    );
+  };
 
-    const MARK_BOARD = () => {
-      Array.from(document.getElementsByClassName(`container_${TARGET_ID}`)).map(
+  const _WINNER_CHECKER = () => {
+    _moves++;
+    if (_WINNER() !== undefined) {
+      return _WINNER();
+    }
+    if (_moves === 9) {
+      CLEAR_BOARD();
+    }
+  };
+
+  const PLAYER_MOVE = () => {
+    if (_moves % 2 === 0 && _board[TARGET_ID] === undefined) {
+      _board[TARGET_ID] = "X";
+      _MARK_BOARD();
+      return _WINNER_CHECKER();
+    }
+    if (_moves % 2 !== 0 && _board[TARGET_ID] === undefined) {
+      _board[TARGET_ID] = "O";
+      _MARK_BOARD();
+      return _WINNER_CHECKER();
+    }
+  };
+
+  const AI_MOVE = () => {
+    const _MARK_BOARD_AI = (container) => {
+      Array.from(document.getElementsByClassName(`container_${container}`)).map(
         (tile) => {
           const TILE_ID = +tile.id.match(/\d/g).slice(1).join("");
-          if (_moves % 2 === 0) {
-            if (GAME_PIECES.x.includes(TILE_ID)) {
-              tile.style.backgroundColor = "#c94b4b";
-            }
-          }
-          if (_moves % 2 !== 0) {
-            if (GAME_PIECES.o.includes(TILE_ID)) {
-              tile.style.backgroundColor = "#8a2be2";
-            }
+          if (GAME_PIECES.o.includes(TILE_ID)) {
+            tile.style.backgroundColor = "#8a2be2";
           }
         }
       );
     };
 
-    if (_moves % 2 === 0 && _board[TARGET_ID] === undefined) {
-      _board[TARGET_ID] = "X";
-      MARK_BOARD();
-      return WINNER_CHECKER();
-    }
-    if (_moves % 2 !== 0 && _board[TARGET_ID] === undefined) {
-      _board[TARGET_ID] = "O";
-      MARK_BOARD();
-      return WINNER_CHECKER();
-    }
-  };
+    const BEST_MOVE_FINDER = () => {
+      let best_move;
+      let best_score = -Infinity;
+      for (let prop in _board) {
+        if (_board[prop] === undefined) {
+          _board[prop] = "O";
+          let score = minimax(_board, 0, true);
+          _board[prop] = undefined;
+          if (score > best_score) {
+            best_score = score;
+            best_move = prop;
+          }
+        }
+      }
+      _board[best_move] = "O";
+      _MARK_BOARD_AI(best_move);
+      // console.log(_WINNER_CHECKER());
+      console.log(_WINNER());
+      return _WINNER_CHECKER();
+    };
+    BEST_MOVE_FINDER();
 
-  const AI_MOVE = () => {
-    // mark the game_board
-    // mark the tiles with // tile.style.backgroundColor = "#8a2be2"
-    // console.log(_board);
+    function minimax(_board, depth, isMaximizing) {
+      let scores = {
+        X: 1,
+        O: -1,
+        undefined: 0,
+      };
+
+      let result = _WINNER();
+      if (result !== undefined) {
+        return scores[result];
+      }
+
+      if (isMaximizing) {
+        let best_score = -Infinity;
+        for (let prop in _board) {
+          if (_board[prop] === undefined) {
+            _board[prop] = "O";
+            let score = minimax(_board, depth + 1, false);
+            _board[prop] = undefined;
+            best_score = Math.max(score, best_score);
+          }
+        }
+        return best_score;
+      } else {
+        let best_score = Infinity;
+        for (let prop in _board) {
+          if (_board[prop] === undefined) {
+            _board[prop] = "X";
+            let score = minimax(_board, depth + 1, true);
+            _board[prop] = undefined;
+            best_score = Math.min(score, best_score);
+          }
+        }
+        return best_score;
+      }
+    }
   };
 
   const CLEAR_BOARD = () => {
