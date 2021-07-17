@@ -1,12 +1,12 @@
 #board_container {
-  margin: auto;
+  margin: 3em auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-columns: repeat(3, 1fr);
   background-color: rgba(57, 57, 57, 0.3);
   gap: 1em;
-  height: 35em;
-  width: 35em;
+  height: 30em;
+  width: 30em;
 }
 
 .tile_container {

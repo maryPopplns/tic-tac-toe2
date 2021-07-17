@@ -88,7 +88,9 @@ const BOARD_LOGIC = (event) => {
   };
 
   const AI_MOVE = () => {
-    console.log("AI_MOVE");
+    // mark the game_board
+    // mark the tiles with // tile.style.backgroundColor = "#8a2be2"
+    // console.log(_board);
   };
 
   const CLEAR_BOARD = () => {
